@@ -1,5 +1,6 @@
 import React from 'react';
+import { LoginButton } from './components/atoms/LoginButton';
 
 export const App = () => {
-    return <p>Hello Wolrd</p>;
+    return <LoginButton/>;
 }
