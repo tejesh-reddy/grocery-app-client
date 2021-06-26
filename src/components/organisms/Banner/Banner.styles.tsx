@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
-export const BannerStyles = makeStyles((theme) => {
+export const BannerStyles = makeStyles(() => {
 
     return {
         root: {
@@ -12,7 +12,8 @@ export const BannerStyles = makeStyles((theme) => {
         },
         slider: {
             width: '100%',
-            whiteSpace: 'no-wrap',
+            whiteSpace: 'nowrap',
+            transition: 'ease 1000ms'
         },
         image: {
             width: '100%',

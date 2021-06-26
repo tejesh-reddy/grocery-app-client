@@ -11,7 +11,7 @@ export const Banner = ({images} : BannerProps) => {
 
     const classes = BannerStyles()
     // Slide show delay
-    const delay = 250
+    const delay = 5000
 
     let [index, setIndex] = useState(0)
 
@@ -19,7 +19,7 @@ export const Banner = ({images} : BannerProps) => {
         setTimeout(
           () =>
             setIndex((prevIndex) =>
-              prevIndex === colors.length - 1 ? 0 : prevIndex + 1
+              prevIndex === images.length - 1 ? 0 : prevIndex + 1
             ),
           delay
         );

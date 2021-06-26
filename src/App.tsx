@@ -1,10 +1,10 @@
 import { Container } from '@material-ui/core';
 import React from 'react';
-import { LoginButton } from './components/atoms/LoginButton';
-import { GroceryCard } from './components/molecules/GroceryCard';
 import { GroceryListing } from './components/molecules/GroceryListing';
 import { DefaultGroceryListing } from './components/molecules/GroceryListing/GroceryListing.stories';
 import { Navbar } from './components/molecules/Navbar';
+import { Banner } from './components/organisms/Banner';
+import { DefaultBanner } from './components/organisms/Banner/Banner.stories';
 
 export const App = () => {
 
@@ -16,6 +16,8 @@ export const App = () => {
 
     return <Container>
         <Navbar/>
+        <br/>
+        <Banner {...DefaultBanner}/>
         <br/>
         <GroceryListing {...DefaultGroceryListing}/>
     </Container>
