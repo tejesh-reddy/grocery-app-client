@@ -5,8 +5,8 @@ export const BannerStyles = makeStyles(() => {
 
     return {
         root: {
-            maxHeight: '300px',
-            maxWidth: '900px',
+            width: '100%',
+            maxHeight: '400px',
             margin: '0 auto',
             overflow: 'hidden',
         },

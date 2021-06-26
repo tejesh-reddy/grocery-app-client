@@ -11,14 +11,16 @@ export type CategoryListingProps = {
 
 export const CategoryListing = (props: CategoryListingProps) => {
 
+    const classes = CategoryListingStyles()
+
     return (
-        <div>
-            <Typography variant='h1'>{props.name}</Typography>
+        <div className={classes.root}>
+            <Typography color='primary' variant='h1' className={classes.heading}>{props.name}</Typography>
             <hr/>
             <br/>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} className={classes.list}>
                 {props.items.map(
-                    item => <Grid item><GroceryCard {...item}/></Grid>
+                    item => <Grid key={`${item.name}${props.name}ui`} item><GroceryCard {...item}/></Grid>
                 )}
             </Grid>
         </div>
