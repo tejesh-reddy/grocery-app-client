@@ -1,8 +1,12 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
 import { navbarStyles } from './navbar.styles';
 
-export const Navbar = () => {
+export type NavbarProps = {
+    isLoggedIn?: Boolean,
+}
+
+export const Navbar = (props: NavbarProps) => {
     const classes = navbarStyles();
 
 
@@ -10,8 +14,14 @@ export const Navbar = () => {
         <Toolbar>
             <Typography color='primary' variant='h1' className={classes.logo}>GROCERY APP</Typography>
 
-            <Typography variant='subtitle1'>CART</Typography>
-            <Typography variant='subtitle1'>ACCOUNT</Typography>
+            {props.isLoggedIn?
+            <>
+                <Button color='primary'>CART</Button>
+                <Button color='primary'>Account</Button>
+            </>
+                :
+                <Button color='primary'>Login</Button>
+            }
         </Toolbar>
 
     </AppBar>
