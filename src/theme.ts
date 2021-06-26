@@ -5,10 +5,10 @@ export const theme = createMuiTheme({
     typography: {
       h1: {
         fontSize: "3rem",
+        fontWeight: 800
       },
     },
     palette: {
-      type: "dark",
       primary: {
         main: orange[600],
       },
