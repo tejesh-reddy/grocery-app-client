@@ -1,6 +1,8 @@
 import { Container } from '@material-ui/core';
 import React from 'react';
 import { BottomBar } from './components/molecules/BottomBar';
+import { CartListing } from './components/molecules/CartListing';
+import { DefaultCart } from './components/molecules/CartListing/CartListing.stories';
 import { GroceryListing } from './components/molecules/GroceryListing';
 import { DefaultGroceryListing } from './components/molecules/GroceryListing/GroceryListing.stories';
 import { Navbar } from './components/molecules/Navbar';
@@ -15,12 +17,15 @@ export const App = () => {
     cost: 20,
     }
 
-    return <Container>
+    return <Container style={{position: 'relative'}}>
     <Navbar/>
     <br/>
     <Banner {...DefaultBanner}/>
     <br/>
     <GroceryListing {...DefaultGroceryListing}/>
+
+    <CartListing {...DefaultCart}/>
+
     <BottomBar/>
 </Container>
 }

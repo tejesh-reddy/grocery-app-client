@@ -5,10 +5,11 @@ export const BottomBarStyles = makeStyles((theme) => {
 
     return {
         root: {
-            position: 'fixed',
-            width: '20%',
-            right: '20px',
+            position: 'sticky',
+            float: 'right',
+            width: '25%',
             bottom: '20px',
+            right: '20px',
             backgroundColor: theme.palette.primary.main,
             display: 'flex',
             justifyContent: 'space-between',
