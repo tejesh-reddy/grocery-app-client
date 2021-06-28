@@ -1,5 +1,6 @@
 import { Container } from '@material-ui/core';
 import React from 'react';
+import { BottomBar } from './components/molecules/BottomBar';
 import { GroceryListing } from './components/molecules/GroceryListing';
 import { DefaultGroceryListing } from './components/molecules/GroceryListing/GroceryListing.stories';
 import { Navbar } from './components/molecules/Navbar';
@@ -15,10 +16,11 @@ export const App = () => {
     }
 
     return <Container>
-        <Navbar/>
-        <br/>
-        <Banner {...DefaultBanner}/>
-        <br/>
-        <GroceryListing {...DefaultGroceryListing}/>
-    </Container>
+    <Navbar/>
+    <br/>
+    <Banner {...DefaultBanner}/>
+    <br/>
+    <GroceryListing {...DefaultGroceryListing}/>
+    <BottomBar/>
+</Container>
 }
