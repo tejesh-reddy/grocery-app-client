@@ -8,6 +8,7 @@ import { DefaultGroceryListing } from './components/molecules/GroceryListing/Gro
 import { Navbar } from './components/molecules/Navbar';
 import { Banner } from './components/organisms/Banner';
 import { DefaultBanner } from './components/organisms/Banner/Banner.stories';
+import { Categories } from './components/organisms/Categories';
 
 export const App = () => {
 
@@ -21,11 +22,6 @@ export const App = () => {
     <Navbar/>
     <br/>
     <Banner {...DefaultBanner}/>
-    <br/>
-    <GroceryListing {...DefaultGroceryListing}/>
-
-    <CartListing {...DefaultCart}/>
-
-    <BottomBar/>
+    <Categories/>
 </Container>
 }

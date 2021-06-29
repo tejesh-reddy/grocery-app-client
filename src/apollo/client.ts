@@ -4,6 +4,6 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 
 export const apolloClient = new ApolloClient({
-    link: new HttpLink({uri: 'https://rickandmortyapi.com/graphql,'}),
+    link: new HttpLink({uri: 'http://localhost:8080/graphql'}),
     cache: new InMemoryCache(),
 });

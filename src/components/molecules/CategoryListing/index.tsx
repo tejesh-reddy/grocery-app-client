@@ -1,15 +1,17 @@
 import { Typography } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
 import React from 'react';
+import { DataHandler, DataHandlerProps } from '../DataHandler';
 import { GroceryCard, GroceryCardProps } from '../GroceryCard';
 import { CategoryListingStyles } from './CategoryListing.styles';
+import { GET_CATEGORIES } from '../../../apollo/Queries/GetCategories';
 
 export type CategoryListingProps = {
     name: string,
-    items: GroceryCardProps[],
+    groceries: GroceryCardProps[],
 }
 
-export const CategoryListing = (props: CategoryListingProps) => {
+export const CategoryListing:React.FC<CategoryListingProps> = (props : CategoryListingProps) => {
 
     const classes = CategoryListingStyles()
 
@@ -19,10 +21,11 @@ export const CategoryListing = (props: CategoryListingProps) => {
             <hr/>
             <br/>
             <Grid container spacing={3} className={classes.list}>
-                {props.items.map(
+                {props.groceries.map(
                     item => <Grid key={`${item.name}${props.name}ui`} item><GroceryCard {...item}/></Grid>
                 )}
             </Grid>
         </div>
     )
+
 };
