@@ -12,7 +12,7 @@ export const Categories = () => {
     return (
         <Query query={GET_CATEGORIES}>
             {({data, loading, error} : any) => {
-                console.log(data)
+                console.log('------', data, loading, error)
                 const args:DataHandlerProps<GroceryListingProps> = {
                     data,
                     loading,

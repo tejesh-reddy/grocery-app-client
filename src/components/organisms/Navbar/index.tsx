@@ -9,6 +9,11 @@ export type NavbarProps = {
 export const Navbar = (props: NavbarProps) => {
     const classes = navbarStyles();
 
+    const login = () => {
+        fetch('http://localhost:8080/auth/google')
+        .then(res => console.log(res))
+    }
+
 
    return <AppBar position="static" className={classes.root} color='transparent' elevation={0}>
         <Toolbar>
@@ -20,7 +25,7 @@ export const Navbar = (props: NavbarProps) => {
                 <Button color='primary'>Account</Button>
             </>
                 :
-                <Button color='primary'>Login</Button>
+                <Button color='primary' onClick={login}>Login</Button>
             }
         </Toolbar>
 

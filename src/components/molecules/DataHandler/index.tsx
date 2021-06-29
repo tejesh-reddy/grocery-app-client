@@ -10,10 +10,14 @@ export type DataHandlerProps<P> = {
 
 export function DataHandler<P>({error, loading, data, Component}:DataHandlerProps<P>) {
 
-    if(error)
-        return <h1>Something went wrong... {error}</h1>
-    if(loading)
+    if(error){
+        console.log('error:', error)
+        return <h1>Something went wrong...</h1>
+    }
+    if(loading){
+        console.log('loading')
         return <h1>Loading...</h1>
+    }
 
     console.log('data:', data)
 
