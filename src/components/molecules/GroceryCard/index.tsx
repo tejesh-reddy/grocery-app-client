@@ -17,12 +17,13 @@ export const GroceryCard = (props: GroceryCardProps) => {
 
     return (<Card className={classes.root} raised>
     <CardMedia
-    title={props.name}>
+    title={props.name}
+    className={classes.imageContainer}>
         <img src={props.image || defaultUrl} className={classes.image}/>
     </CardMedia>
 
     <CardContent>
-        <Typography variant='h6'>{props.name}</Typography>
+        <Typography variant='body1' className={classes.title}>{props.name}</Typography>
         <Typography variant='subtitle1'>{props.unit}</Typography>
         <Typography variant='subtitle1'>${props.cost}</Typography>
     </CardContent>
