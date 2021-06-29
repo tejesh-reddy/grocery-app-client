@@ -1,10 +1,9 @@
 import { Typography } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
 import React from 'react';
-import { DataHandler, DataHandlerProps } from '../DataHandler';
-import { GroceryCard, GroceryCardProps } from '../GroceryCard';
 import { CategoryListingStyles } from './CategoryListing.styles';
 import { GET_CATEGORIES } from '../../../apollo/Queries/GetCategories';
+import { GroceryCard, GroceryCardProps } from '../../molecules/GroceryCard';
 
 export type CategoryListingProps = {
     name: string,

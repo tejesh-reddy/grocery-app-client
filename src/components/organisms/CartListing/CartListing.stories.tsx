@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react'
 import { CartListing, CartListingProps } from '.';
-import { DefaultCartItem } from '../CartItem/CartItem.stories';
+import { DefaultCartItem } from '../../molecules/CartItem/CartItem.stories';
 
 export default {
 component: CartListing,

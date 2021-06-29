@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react'
 import { CategoryListing, CategoryListingProps } from '.';
-import { DefaultGrocery } from '../GroceryCard/GroceryCard.stories';
+import { DefaultGrocery } from '../../molecules/GroceryCard/GroceryCard.stories';
 
 export default {
 component: CategoryListing,

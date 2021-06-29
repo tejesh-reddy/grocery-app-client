@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
-import { CartItem, CartItemProps } from '../CartItem';
+import { CartItem, CartItemProps } from '../../molecules/CartItem';
 import { CartListingStyles } from './CartListing.styles';
 
 export type CartListingProps = {

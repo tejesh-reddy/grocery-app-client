@@ -1,9 +1,8 @@
 import React from 'react';
 import { GET_CATEGORIES } from '../../../apollo/Queries/GetCategories';
 import { Query } from 'react-apollo';
-import { CategoryListing, CategoryListingProps } from '../../molecules/CategoryListing';
 import { DataHandler, DataHandlerProps } from '../../molecules/DataHandler';
-import { GroceryListing, GroceryListingProps } from '../../molecules/GroceryListing';
+import { GroceryListing, GroceryListingProps } from '../GroceryListing';
 
 export type CategoriesProps = {}
 

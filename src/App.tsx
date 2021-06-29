@@ -1,10 +1,10 @@
 import { Container } from '@material-ui/core';
 import React from 'react';
 import { BottomBar } from './components/molecules/BottomBar';
-import { CartListing } from './components/molecules/CartListing';
-import { DefaultCart } from './components/molecules/CartListing/CartListing.stories';
-import { GroceryListing } from './components/molecules/GroceryListing';
-import { DefaultGroceryListing } from './components/molecules/GroceryListing/GroceryListing.stories';
+import { CartListing } from './components/organisms/CartListing';
+import { DefaultCart } from './components/organisms/CartListing/CartListing.stories';
+import { GroceryListing } from './components/organisms/GroceryListing';
+import { DefaultGroceryListing } from './components/organisms/GroceryListing/GroceryListing.stories';
 import { Navbar } from './components/molecules/Navbar';
 import { Banner } from './components/organisms/Banner';
 import { DefaultBanner } from './components/organisms/Banner/Banner.stories';
