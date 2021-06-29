@@ -5,7 +5,7 @@ import { CartListing } from './components/organisms/CartListing';
 import { DefaultCart } from './components/organisms/CartListing/CartListing.stories';
 import { GroceryListing } from './components/organisms/GroceryListing';
 import { DefaultGroceryListing } from './components/organisms/GroceryListing/GroceryListing.stories';
-import { Navbar } from './components/molecules/Navbar';
+import { Navbar } from './components/organisms/Navbar';
 import { Banner } from './components/organisms/Banner';
 import { DefaultBanner } from './components/organisms/Banner/Banner.stories';
 import { Categories } from './components/organisms/Categories';
