@@ -4,9 +4,9 @@ import React from 'react';
 import { CategoryListingStyles } from './CategoryListing.styles';
 import { GET_CATEGORIES } from '../../../apollo/Queries/GetCategories';
 import { GroceryCard, GroceryCardProps } from '../../molecules/GroceryCard';
+import { Grocery } from '../Grocery';
 
 export type CategoryListingProps = {
-    id: number,
     name: string,
     groceries: GroceryCardProps[],
 }
@@ -22,7 +22,7 @@ export const CategoryListing:React.FC<CategoryListingProps> = (props : CategoryL
             <br/>
             <Grid container spacing={3} className={classes.list}>
                 {props.groceries.map(
-                    item => <Grid key={`${item.id}${props.id}ui`} item><GroceryCard {...item}/></Grid>
+                    item => <Grid key={`${item.name}${props.name}ui`} item><Grocery {...item}/></Grid>
                 )}
             </Grid>
         </div>

@@ -4,26 +4,27 @@ import { GroceryCardStyles } from './GroceryCard.styles';
 import { Grocery } from '../../../types';
 
 export type GroceryCardProps = {
-    grocery: Grocery
+    groceryById: Grocery
 }
 
 const defaultUrl = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F6%2F6d%2FGood_Food_Display_-_NCI_Visuals_Online.jpg%2F1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg&f=1&nofb=1";
 
-export const GroceryCard = ({grocery}: GroceryCardProps) => {
+export const GroceryCard = ({groceryById}: GroceryCardProps) => {
 
     const classes = GroceryCardStyles()
+    console.log(groceryById.id)
 
     return (<Card className={classes.root} raised>
     <CardMedia
-    title={grocery.name}
+    title={groceryById.name}
     className={classes.imageContainer}>
-        <img src={grocery.image || defaultUrl} className={classes.image}/>
+        <img src={groceryById.image || defaultUrl} className={classes.image}/>
     </CardMedia>
 
     <CardContent>
-        <Typography variant='body1' className={classes.title}>{grocery.name}</Typography>
-        <Typography variant='subtitle1'>{grocery.unit}</Typography>
-        <Typography variant='subtitle1'>${grocery.cost}</Typography>
+        <Typography variant='body1' className={classes.title}>{groceryById.name}</Typography>
+        <Typography variant='subtitle1'>{groceryById.unit}</Typography>
+        <Typography variant='subtitle1'>₹{groceryById.cost}</Typography>
     </CardContent>
     <Button className={classes.button} variant='contained' color='secondary'>Add To Cart</Button>
 

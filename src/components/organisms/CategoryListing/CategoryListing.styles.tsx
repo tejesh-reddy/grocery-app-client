@@ -5,7 +5,7 @@ export const CategoryListingStyles = makeStyles((theme) => {
 
     return {
         root: {
-            paddingBottom: '1rem',
+            padding: '0.5rem 0',
         },
         heading: {
             padding: '0',
