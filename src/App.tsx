@@ -12,18 +12,15 @@ import { Categories } from './components/organisms/Categories';
 import { DataHandler, DataHandlerProps } from './components/molecules/DataHandler';
 import { Query } from 'react-apollo';
 import { GET_USER } from './apollo/Queries/Profile';
+import { User } from './types';
+import { useLogin } from './App.hooks';
 
 export const App = () => {
 
-    const cardItems = {
-    name: 'Grocery',
-    unit: '1 Kg',
-    cost: 20,
-    }
-    
+    let [isLoggedIn, actions] = useLogin(false);
 
     return <Container style={{position: 'relative'}}>
-    <Navbar/>
+    <Navbar isLoggedIn={isLoggedIn} onLogin={actions.login} onLogout={actions.logout}/>
     <br/>
     <Query query={GET_USER}>
         {({data, loading, error} : any) => {
@@ -41,10 +38,8 @@ export const App = () => {
 }
 
 type MeProps = {
-    id: string,
-    username: string
+    user:User
 }
-const Me = ({id, username} : MeProps) => {
-    return <><h1>ID: {id}</h1>
-    <h1>Name: {username}</h1></>
+const Me = ({user} : MeProps) => {
+    return <h1>Welcome {user.username}!</h1>
 }

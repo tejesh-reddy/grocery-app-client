@@ -3,13 +3,16 @@ import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
 import { navbarStyles } from './navbar.styles';
 
 export type NavbarProps = {
-    isLoggedIn?: Boolean,
+    isLoggedIn: any,
+    onLogin?: any,
+    onLogout?: any,
 }
 
 export const Navbar = (props: NavbarProps) => {
     const classes = navbarStyles();
 
-    const login = () => {
+    const login = (ev:any) => {
+        ev.preventDefault()
         fetch('http://localhost:8080/auth/google')
         .then(res => console.log(res))
     }
@@ -23,9 +26,10 @@ export const Navbar = (props: NavbarProps) => {
             <>
                 <Button color='primary'>CART</Button>
                 <Button color='primary'>Account</Button>
+                <Button color='secondary' onClick={props.onLogout}>Logout</Button>
             </>
                 :
-                <Button color='primary' onClick={login}>Login</Button>
+                <Button color='primary' onClick={props.onLogin}>Login</Button>
             }
         </Toolbar>
 

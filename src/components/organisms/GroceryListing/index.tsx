@@ -14,7 +14,7 @@ export const GroceryListing = ({categories}: GroceryListingProps) => {
         <Grid container spacing={6}>
             {categories.map(
                 category => 
-                <Grid item xs={12}>
+                <Grid item xs={12} key={category.id}>
                     <CategoryListing  {...category}/>
                 </Grid>
             )}
