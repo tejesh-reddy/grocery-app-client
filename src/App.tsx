@@ -28,7 +28,7 @@ export const App = () => {
                 data,
                 loading,
                 error,
-                Component: Me
+                Component: Me,
             }
             return <DataHandler {...args}/>
         }}

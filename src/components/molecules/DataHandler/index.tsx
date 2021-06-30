@@ -4,11 +4,12 @@ export type DataHandlerProps<P> = {
     error: any,
     loading: any,
     data: any,
-    Component: React.FC<P>
+    Component: React.FC<P>,
+    additionalProps?: any
 }
 
 
-export function DataHandler<P>({error, loading, data, Component}:DataHandlerProps<P>) {
+export function DataHandler<P>({error, loading, data, Component, additionalProps}:DataHandlerProps<P>) {
 
     if(error){
         console.log('error:', error)
@@ -22,6 +23,6 @@ export function DataHandler<P>({error, loading, data, Component}:DataHandlerProp
     console.log('data:', data)
 
 
-    return <Component {...data}/>
+    return <Component {...data} {...additionalProps}/>
 
 };

@@ -8,12 +8,14 @@ import { DataHandler, DataHandlerProps } from '../../molecules/DataHandler';
 import { GroceryCard, GroceryCardProps } from '../../molecules/GroceryCard';
 
 export type GroceryProps = {
-    id: number
+    id: number,
 }
 
 export const Grocery = ({id}: GroceryProps) => {
 
-    console.log('id:', id)
+    const addToCart = () => console.log('added', id)
+    const removeFromCart = () => console.log('removed', id)
+
 
     return (
         <Query query={GET_GROCERY_BY_ID} variables={{ id }}>
@@ -23,6 +25,10 @@ export const Grocery = ({id}: GroceryProps) => {
                     error,
                     data,
                     Component: GroceryCard,
+                    additionalProps: {
+                        addHandler: addToCart,
+                        reduceHandler: removeFromCart
+                    }
                 }
 
                 return <DataHandler {...args}/>
@@ -31,6 +37,3 @@ export const Grocery = ({id}: GroceryProps) => {
     )
 };
 
-const JustId:React.FC<GroceryProps> = (props:any) => {
-    return <h1>id: {props.groceryById.id}</h1>
-}

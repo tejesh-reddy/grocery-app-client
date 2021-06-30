@@ -7,10 +7,6 @@ export const GET_CATEGORIES = gql`
       name
       groceries{
         id
-        name
-        cost
-        unit
-        image
       }
     }
   }
