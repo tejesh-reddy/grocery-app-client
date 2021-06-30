@@ -13,11 +13,12 @@ import { DataHandler, DataHandlerProps } from './components/molecules/DataHandle
 import { Query } from 'react-apollo';
 import { GET_USER } from './apollo/Queries/Profile';
 import { User } from './types';
-import { useLogin } from './App.hooks';
+import { useCart, useLogin } from './App.hooks';
 
 export const App = () => {
 
-    let [isLoggedIn, actions] = useLogin(false);
+    let [isLoggedIn, Actions] = useLogin(false);
+    let [cart, cartActions] = useCart();
 
     return <Container style={{position: 'relative'}}>
     <Navbar isLoggedIn={isLoggedIn} onLogin={actions.login} onLogout={actions.logout}/>
@@ -33,7 +34,7 @@ export const App = () => {
             return <DataHandler {...args}/>
         }}
     </Query>
-    <Categories/>
+    <Categories cart={cart} onUpdate={cartActions.update}/>
 </Container>
 }
 
