@@ -3,18 +3,20 @@ import { Query } from 'react-apollo';
 import { NumberLiteralType } from 'typescript';
 import { GET_GROCERY_BY_ID } from '../../../apollo/Queries/GetGrocery';
 import { QueryData } from '../../../apollo/types';
-import { Grocery as GType} from '../../../types';
+import { Grocery as GType, Order} from '../../../types';
 import { DataHandler, DataHandlerProps } from '../../molecules/DataHandler';
 import { GroceryCard, GroceryCardProps } from '../../molecules/GroceryCard';
 
 export type GroceryProps = {
     id: number,
+    quantity: number,
+    onUpdate: (action:"INC"|"DEC") => any, 
 }
 
-export const Grocery = ({id}: GroceryProps) => {
+export const Grocery = ({id, quantity, onUpdate}: GroceryProps) => {
 
-    const addToCart = () => console.log('added', id)
-    const removeFromCart = () => console.log('removed', id)
+    const addToCart = () => onUpdate("INC")
+    const removeFromCart = () => onUpdate("DEC")
 
 
     return (
@@ -26,6 +28,7 @@ export const Grocery = ({id}: GroceryProps) => {
                     data,
                     Component: GroceryCard,
                     additionalProps: {
+                        quantity,
                         addHandler: addToCart,
                         reduceHandler: removeFromCart
                     }

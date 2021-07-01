@@ -9,3 +9,18 @@ export const GET_USER = gql`
     }
 }
 `;
+
+export const GET_CART = gql`
+{    user{
+        cart{
+            id
+            status
+            items{
+                grocery{
+                    id
+                }
+                quantity
+            }
+        }
+    }
+}`;

@@ -16,11 +16,9 @@ export function DataHandler<P>({error, loading, data, Component, additionalProps
         return <h1>Something went wrong...</h1>
     }
     if(loading){
-        console.log('loading')
         return <h1>Loading...</h1>
     }
 
-    console.log('data:', data)
 
 
     return <Component {...data} {...additionalProps}/>

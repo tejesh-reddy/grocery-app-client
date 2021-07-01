@@ -13,7 +13,6 @@ export const GroceryCardStyles = makeStyles((theme) => {
         },
         image: {
             margin: '0 auto',
-            padding: '1em',
             height: '100%',
             width: '100%',
         },
@@ -28,6 +27,15 @@ export const GroceryCardStyles = makeStyles((theme) => {
             '&:hover':{
                 backgroundColor: theme.palette.primary.main,
             }
-        }
+        },
+        options: {
+            padding: '0 3em 1em 3em',
+            width: 'calc(100% - 6em)',
+            margin: '0 auto',
+            display: 'flex',
+            fontWeight: 600,
+            justifyContent: 'space-around',
+            alignItems: 'center',
+        },
     }
 });

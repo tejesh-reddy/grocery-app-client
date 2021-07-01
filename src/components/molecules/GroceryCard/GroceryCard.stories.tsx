@@ -8,9 +8,15 @@ title: 'GroceryCard'
 };
 
 export const DefaultGrocery:GroceryCardProps = {
-    name: 'Grocery',
-    unit: '1 Kg',
-    cost: 20,
+    groceryById: {
+        id: 1,
+        name: 'Grocery',
+        unit: '1 Kg',
+        cost: 20,
+    },
+    addHandler: () => console.log('adding'),
+    reduceHandler: () => console.log('removing'),
+    quantity: 1,
 }
 
 const Template:Story<GroceryCardProps> = (args: any) => <GroceryCard {...args}/>

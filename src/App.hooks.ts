@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { getUserCart, updateCart } from "./helpers/Cart";
+import { useMutation, useQuery } from "react-apollo";
+import { ADDTO_CART, CLEAR_CART } from "./apollo/Queries/Cart";
+import { GET_CART } from "./apollo/Queries/Profile";
+import { updateUserCart } from "./helpers/Cart";
 import { Order } from "./types";
 
 
@@ -22,21 +25,24 @@ export const useLogin = (loggedIn: Boolean) => {
     return [login, actions];
 }
 
-export const useCart = () => {
+export const useCart = (updateCart: any, clearCart: any) => {
+
     let [cart, setCart] = useState<Order|null>(null);
 
+    const {loading, error, data} = useQuery(GET_CART)
+
+   
+
     useEffect(() => {
-        setCart(getUserCart())
-    }, [])
+        if(data !== undefined){
+            setCart(data.user.cart);
+        }
+    }, [data])
+
 
     const actions = {
         update: (newCart: Order|null) => {
-            if(newCart == null) {
-                updateCart(null)
-            }
-            else {
-                updateCart(newCart, setCart)
-            }
+            updateUserCart(newCart, updateCart, clearCart, (data) => {setCart({...data.data.updateCart})})
         }
     }
 
