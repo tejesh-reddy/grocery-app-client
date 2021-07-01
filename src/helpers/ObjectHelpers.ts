@@ -38,7 +38,7 @@ const changeQuantity = (items: any[], grocery: any, change: (data: number) => nu
         if(item.grocery.id === grocery.id) {
             flag = 1;
             let newQuant = change(item.quantity)
-            if(newQuant !== 0)
+            if(newQuant > 0)
             {
                 result.push({
                     grocery: grocery,

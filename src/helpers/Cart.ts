@@ -47,9 +47,11 @@ export const getChangeHandlers = (action: "DEC"|"INC"|"REMOVE", grocery:Grocery,
         return updateHandler(result)
     }
     else if(action == "DEC"){
+        console.log('now here')
         result.items = reduceQuantity(cart.items, grocery)
     }
     else if(action == "INC") {
+        console.log('here')
         result.items = increaseQuantity(cart.items, grocery)
     }
     else{

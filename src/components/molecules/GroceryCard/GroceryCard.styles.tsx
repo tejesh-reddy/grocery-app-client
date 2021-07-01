@@ -29,7 +29,7 @@ export const GroceryCardStyles = makeStyles((theme) => {
             }
         },
         options: {
-            padding: '0 3em 1em 3em',
+            padding: '0 3em 0.5em 3em',
             width: 'calc(100% - 6em)',
             margin: '0 auto',
             display: 'flex',

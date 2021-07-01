@@ -19,6 +19,7 @@ export const Grocery = ({id, quantity, onUpdate}: GroceryProps) => {
     const removeFromCart = () => onUpdate("DEC")
 
 
+
     return (
         <Query query={GET_GROCERY_BY_ID} variables={{ id }}>
             {({data, loading, error}: any) => {

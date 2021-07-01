@@ -4,6 +4,7 @@ import { GroceryCardStyles } from './GroceryCard.styles';
 import { Grocery } from '../../../types';
 import AddIcon from '@material-ui/icons/Add';
 import { IconButton } from '@material-ui/core';
+import RemoveIcon from '@material-ui/icons/Remove';
 
 export type GroceryCardProps = {
     groceryById: Grocery,
@@ -33,9 +34,9 @@ export const GroceryCard = ({groceryById, addHandler, reduceHandler, quantity}: 
     {quantity === 0? 
         <Button className={classes.button} onClick={addHandler} variant='contained' color='secondary'>Add To Cart</Button>
         :
-        <div className={classes.options} onClick={addHandler}><IconButton><AddIcon/></IconButton> 
+        <div className={classes.options}><IconButton onClick={addHandler}><AddIcon/></IconButton> 
         <Typography variant='subtitle1'>{quantity}</Typography>
-        <IconButton onClick={reduceHandler}><AddIcon/></IconButton></div>
+        <IconButton onClick={reduceHandler}><RemoveIcon/></IconButton></div>
     }
 
 </Card>);
