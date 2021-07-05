@@ -51,20 +51,20 @@ export const useCart = (updateCart: any, clearCart: any) => {
 }
 
 export const useAuthentication = () => {
-    const [accessToken, setAccessToken] = useState('');
-    const { getAccessTokenSilently } = useAuth0()
+    let [token, setToken] = useState('');
+    const { getAccessTokenSilently } = useAuth0();
+
 
     const getToken = () => {
         try{
-            getAccessTokenSilently().then(token => {console.log('---token:', token); setAccessToken(token)});
+            getAccessTokenSilently().then(token => {console.log('---token:', token); localStorage.setItem("auth_token", token); setToken(token)});
         }
         catch(e) {
             console.log('auth error:', e);
         }
     }
 
-    return [
-        accessToken,
-        getToken
-    ]
+    useEffect(() => getToken(), [])
+
+    return [token, getToken]
 }

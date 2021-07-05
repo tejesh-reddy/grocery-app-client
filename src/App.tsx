@@ -1,20 +1,17 @@
 import { Container } from '@material-ui/core';
 import React, { useEffect } from 'react';
-import { BottomBar } from './components/molecules/BottomBar';
-import { CartListing } from './components/organisms/CartListing';
-import { DefaultCart } from './components/organisms/CartListing/CartListing.stories';
-import { GroceryListing } from './components/organisms/GroceryListing';
-import { DefaultGroceryListing } from './components/organisms/GroceryListing/GroceryListing.stories';
+
 import { Navbar } from './components/organisms/Navbar';
 import { Banner } from './components/organisms/Banner';
 import { DefaultBanner } from './components/organisms/Banner/Banner.stories';
 import { Categories } from './components/organisms/Categories';
 import { DataHandler, DataHandlerProps } from './components/molecules/DataHandler';
-import { Query, useMutation, useQuery } from 'react-apollo';
+import { ApolloProvider, Query, useMutation, useQuery } from 'react-apollo';
 import { GET_CART, GET_USER } from './apollo/Queries/Profile';
 import { User } from './types';
 import { useAuthentication, useCart, useLogin } from './App.hooks';
 import { ADDTO_CART, CLEAR_CART } from './apollo/Queries/Cart';
+import { apolloClient } from './apollo/client';
 
 //TODO gql fails, change query params in useMutation call (helpers)
 
@@ -27,28 +24,27 @@ export const App = () => {
 
     let [cart, cartActions] = useCart(updateCart, clearCart);
 
-    let [token, getToken] = useAuthentication();
-
-    useEffect(() => getToken(), [])
-
+    let getToken = useAuthentication();
     
 
-    return <Container style={{position: 'relative'}}>
-    <Navbar/>
-    <br/>
-    <Query query={GET_USER}>
-        {({data, loading, error} : any) => {
-            const args:DataHandlerProps<MeProps> = {
-                data,
-                loading,
-                error,
-                Component: Me,
-            }
+    return(
+            <Container style={{position: 'relative'}}>
+            <Navbar/>
+            <br/>
+            <Query query={GET_USER}>
+                {({data, loading, error} : any) => {
+                    const args:DataHandlerProps<MeProps> = {
+                    data,
+                    loading,
+                    error: error||"Login to order",
+                    Component: Me,
+                }
             return <DataHandler {...args}/>
-        }}
-    </Query>
-    <Categories cart={cart} onUpdate={cartActions.update}/>
-</Container>
+            }}
+            </Query>
+            <Categories cart={cart} onUpdate={cartActions.update}/>
+            </Container>
+    )
 }
 
 type MeProps = {
