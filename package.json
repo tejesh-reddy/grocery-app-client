@@ -11,6 +11,8 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.5.0",
+    "@auth0/auth0-spa-js": "^1.15.0",
     "@fontsource/roboto": "^4.4.5",
     "@fontsource/rubik-mono-one": "^4.4.5",
     "@material-ui/core": "^4.11.4",

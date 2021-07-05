@@ -1,15 +1,12 @@
 import axios from "axios";
+import { auth0 } from "./Auth0";
 
 const baseUrl = 'http://localhost:8080/'
 const loginUrl = `${baseUrl}auth/google`
 const logoutUrl = `${baseUrl}logout`
 
-export const userLogin = () => {
-    axios.get("http://localhost:8080/auth/login/success")
-    .then(console.log)
-    .catch(err => console.log('err:', err));
-      
-}
+
+export const userLogin =() => window.open("http://localhost:8080/auth/google", "_self")
 
 export const userLogout = () => {
     axios.get(`${logoutUrl}`)

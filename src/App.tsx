@@ -13,7 +13,7 @@ import { DataHandler, DataHandlerProps } from './components/molecules/DataHandle
 import { Query, useMutation, useQuery } from 'react-apollo';
 import { GET_CART, GET_USER } from './apollo/Queries/Profile';
 import { User } from './types';
-import { useCart, useLogin } from './App.hooks';
+import { useAuthentication, useCart, useLogin } from './App.hooks';
 import { ADDTO_CART, CLEAR_CART } from './apollo/Queries/Cart';
 
 //TODO gql fails, change query params in useMutation call (helpers)
@@ -26,10 +26,15 @@ export const App = () => {
     const [clearCart] = useMutation(CLEAR_CART)
 
     let [cart, cartActions] = useCart(updateCart, clearCart);
+
+    let [token, getToken] = useAuthentication();
+
+    useEffect(() => getToken(), [])
+
     
 
     return <Container style={{position: 'relative'}}>
-    <Navbar isLoggedIn={isLoggedIn} onLogin={Actions.login} onLogout={Actions.logout}/>
+    <Navbar/>
     <br/>
     <Query query={GET_USER}>
         {({data, loading, error} : any) => {

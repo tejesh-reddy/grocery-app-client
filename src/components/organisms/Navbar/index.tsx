@@ -1,35 +1,32 @@
 import React from 'react';
 import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
 import { navbarStyles } from './navbar.styles';
+import { userLogin } from '../../../auth/userAuth';
+import { LoginButton } from '../../atoms/LoginButton';
+import { LogoutButton } from '../../atoms/LogoutButton';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export type NavbarProps = {
-    isLoggedIn: any,
-    onLogin?: any,
-    onLogout?: any,
 }
 
 export const Navbar = (props: NavbarProps) => {
     const classes = navbarStyles();
 
-    const login = (ev:any) => {
-        ev.preventDefault()
-        fetch('http://localhost:8080/auth/google')
-        .then(res => console.log(res))
-    }
+    const { isAuthenticated } = useAuth0()
 
 
    return <AppBar position="static" className={classes.root} color='transparent' elevation={0}>
         <Toolbar>
             <Typography color='primary' variant='h1' className={classes.logo}>GROCERY APP</Typography>
 
-            {props.isLoggedIn?
+            {isAuthenticated?
             <>
                 <Button color='primary'>CART</Button>
                 <Button color='primary'>Account</Button>
-                <Button color='secondary' onClick={props.onLogout}>Logout</Button>
+                <LogoutButton/>
             </>
                 :
-                <Button color='primary' onClick={props.onLogin}>Login</Button>
+                <LoginButton/>
             }
         </Toolbar>
 

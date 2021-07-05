@@ -1,3 +1,4 @@
+import { Auth0Context, Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useState } from "react";
 import { useMutation, useQuery } from "react-apollo";
 import { ADDTO_CART, CLEAR_CART } from "./apollo/Queries/Cart";
@@ -47,4 +48,23 @@ export const useCart = (updateCart: any, clearCart: any) => {
     }
 
     return [cart, actions]
+}
+
+export const useAuthentication = () => {
+    const [accessToken, setAccessToken] = useState('');
+    const { getAccessTokenSilently } = useAuth0()
+
+    const getToken = () => {
+        try{
+            getAccessTokenSilently().then(token => {console.log('---token:', token); setAccessToken(token)});
+        }
+        catch(e) {
+            console.log('auth error:', e);
+        }
+    }
+
+    return [
+        accessToken,
+        getToken
+    ]
 }
