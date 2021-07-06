@@ -24,20 +24,21 @@ export const App = () => {
 
     let [cart, cartActions] = useCart(updateCart, clearCart);
 
-    let getToken = useAuthentication();
-    
+    let tokenHandler = useAuthentication();
+   
 
     return(
             <Container style={{position: 'relative'}}>
-            <Navbar/>
+            <Navbar logoutHandler={tokenHandler}/>
             <br/>
             <Query query={GET_USER}>
                 {({data, loading, error} : any) => {
                     const args:DataHandlerProps<MeProps> = {
                     data,
                     loading,
-                    error: error||"Login to order",
+                    error: error,
                     Component: Me,
+                    errorMessage: 'Please login to start ordering!',
                 }
             return <DataHandler {...args}/>
             }}

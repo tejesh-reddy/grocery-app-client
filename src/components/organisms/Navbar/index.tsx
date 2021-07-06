@@ -1,12 +1,12 @@
 import React from 'react';
 import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
 import { navbarStyles } from './navbar.styles';
-import { userLogin } from '../../../auth/userAuth';
 import { LoginButton } from '../../atoms/LoginButton';
 import { LogoutButton } from '../../atoms/LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
 
 export type NavbarProps = {
+    logoutHandler: () => void,
 }
 
 export const Navbar = (props: NavbarProps) => {
@@ -23,7 +23,7 @@ export const Navbar = (props: NavbarProps) => {
             <>
                 <Button color='primary'>CART</Button>
                 <Button color='primary'>Account</Button>
-                <LogoutButton/>
+                <LogoutButton tokenHandler ={props.logoutHandler}/>
             </>
                 :
                 <LoginButton/>

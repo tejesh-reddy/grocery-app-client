@@ -7,6 +7,7 @@ import { updateUserCart } from "./helpers/Cart";
 import { Order } from "./types";
 
 
+
 export const useLogin = (loggedIn: Boolean) => {
     let [login, setLogin] = useState<Boolean>(loggedIn);
 
@@ -57,14 +58,19 @@ export const useAuthentication = () => {
 
     const getToken = () => {
         try{
-            getAccessTokenSilently().then(token => {console.log('---token:', token); localStorage.setItem("auth_token", token); setToken(token)});
+            getAccessTokenSilently().then(token => {console.log('---token:', token); setToken(token)});
         }
         catch(e) {
             console.log('auth error:', e);
         }
     }
 
-    useEffect(() => getToken(), [])
+    const removeToken = () => {
+        localStorage.setItem("auth_token", '');
+    }
 
-    return [token, getToken]
+    useEffect(() => getToken(), []);
+    useEffect(() => localStorage.setItem("auth_token", token), [token]);
+
+    return removeToken
 }

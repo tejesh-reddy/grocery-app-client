@@ -9,6 +9,7 @@ import { increaseQuantity, reduceQuantity, removeGrocery, toOrderInput } from ".
 
 export const updateUserCart = (newCart: Order|null, updateCart: any, clearCart: any, resolve?: (data:any) => any) => {
 
+
     if(newCart && resolve){
         updateCart({variables: toOrderInput(newCart)})
         .then((data: any) => resolve({...data}))
@@ -47,11 +48,9 @@ export const getChangeHandlers = (action: "DEC"|"INC"|"REMOVE", grocery:Grocery,
         return updateHandler(result)
     }
     else if(action == "DEC"){
-        console.log('now here')
         result.items = reduceQuantity(cart.items, grocery)
     }
     else if(action == "INC") {
-        console.log('here')
         result.items = increaseQuantity(cart.items, grocery)
     }
     else{

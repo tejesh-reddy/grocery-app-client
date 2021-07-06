@@ -15,6 +15,7 @@ const render = () => {
     clientId={"ndHlCoezXNUTMMfTzluH5RykPFCFAdeU"}
     redirectUri={window.location.origin}
     audience={"https://grocery-app.com"}
+    scope={"openid profile email"}
     >
       <ApolloProvider client={apolloClient}>
       <ThemeProvider theme={theme}>

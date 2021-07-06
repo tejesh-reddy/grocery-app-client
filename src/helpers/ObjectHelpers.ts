@@ -13,7 +13,7 @@ type superArgs = args & {
 
 export const toOrderInput = (cart: Order) => {
     let result:any = {};
-    result.status = cart.status;
+    result.status = cart.status || "cart";
     result.items = [];
 
 
